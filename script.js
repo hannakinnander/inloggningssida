@@ -8,6 +8,7 @@ const passwordInput = document.getElementById("password");
 function goToAddUserPage(){
     loginField.classList.add("hidden");
     addUserField.hidden = false;
+    document.querySelector("headerRight").hidden = false;
 
 }
 
