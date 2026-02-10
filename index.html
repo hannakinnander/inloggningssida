@@ -28,16 +28,17 @@
     <div id="addUsername" class="hidden">
         <div class="firstStep">
             <input id="newUsername" type="text" placeholder="Ange önskat användarnamn">
-            <p class="occupiedUsername inputMessage">hej</p>
+            <p class="occupiedUsername hidden">Användarnamnet är upptaget</p>
             <button class="tryUsername">Fortsätt</button>
         </div>
+    
         <div class="addPassword hidden">
             <input id="newPassword" type="password" placeholder="Lägg till lösenord">
             <input id="tryNewPassword" type="password" placeholder="Upprepa lösenord">
-            <p class="noMatchPassword" class="inputMessage">hej</p>
-            <button>Skapa konto</button>
-            <p class="newAccountAdded">Användare tillagd!</p>
+            <p class="noMatchPassword inputMessage hidden">Lösenorden matchar inte</p>
+            <button class="createAccount">Skapa konto</button>
         </div>
+        <h2 class="newAccountAdded hidden"></h2>
     </div>
     </main>
 </body>

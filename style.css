@@ -23,7 +23,9 @@ main {
     align-items: center;
     flex-direction: column;
     min-height: 100vh;
-    
+}
+.hidden{
+    display: none;
 }
 
 /*Inloggningsfältet*/
@@ -35,7 +37,7 @@ main {
     gap:1rem;
     width:15rem;
     height: 15rem;
-    background-color: blue;
+    background-color: rgba(253, 241, 127, 0.74);
     border-radius:10px;
 }
 #login-field.hidden{
@@ -51,6 +53,9 @@ main {
 #newUser{
     font-size: 0.6rem;
 }
+button:hover{
+    cursor: pointer;
+}
 
 /*Lägg till användare*/
 #addUsername{
@@ -59,11 +64,20 @@ main {
     justify-content: center;
     justify-items: center;
     align-items: center;
+    align-content: center;
     background-color: rgba(214, 29, 103, 0.336);
     height: 15rem;
     width: 15rem;
     border-radius:10px;
     gap: 1rem;
+}
+.firstStep{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.firstStep.hidden{
+    display: none;
 }
 #addUsername.hidden{
     display: none;
@@ -82,9 +96,25 @@ font-family: Arial, Helvetica, sans-serif;
 
 
 }
-
-
-
-.hidden{
+.occupiedUsername.hidden{
     display: none;
 }
+
+.addPassword{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+.addPassword.hidden{
+    display: none;
+}
+
+.newAccountAdded {
+    text-align: center;
+}
+/* .newAccountAdded.hidden {
+    display: none;
+} */
+
+
