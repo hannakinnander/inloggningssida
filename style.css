@@ -3,11 +3,24 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5rem;
+    width: 100vw;
+    padding: 2rem;
+    background-color: rgb(255, 107, 176);
+    position: fixed;
+}
+main {
+    background-color: pink;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 #login-field {
