@@ -1,7 +1,14 @@
+const newUserButton = document.getElementById("newUser");
+const addUserField = document.querySelector(".addUser")
 const loginField = document.getElementById("login-field");
-const loginButton = document.getElementById("login-button");
+const loginButton = document.getElementById("loginButton");
+const usernameInput = document.getElementById("username");
+const passwordInput = document.getElementById("password");
 
-loginButton.addEventListener("click", function (){
-loginField.classList.add("hidden");
-})
+function goToAddUserPage(){
+    loginField.classList.add("hidden");
+    addUserField.hidden = false;
 
+}
+
+newUserButton.addEventListener("click", goToAddUserPage);
