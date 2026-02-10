@@ -10,26 +10,34 @@
 <body>
     <header>
         <h1>Hannas kammare</h1>
-        <div class="headerRight" hidden>
-            <button id="goBack" class="headerButton">Tillbaka till startsida</button>
-            <button id="logOut" class="headerButton">Logga ut</button>
+        <div class="headerRight">
+            <button class="headerButton goBack hidden">Tillbaka till startsida</button>
+            <button id="logOut" class="headerButton hidden">Logga ut</button>
         </div>
     </header>
     <main>
     <div id="login-field">
-        <button id="newUser">Registrera konto</button>
+        
         <input id="username" type="text" placeholder="Ange användarnamn">
         <input id="password" type="password" placeholder="Ange lösenord"> 
+       
         <button id="loginButton">Logga in</button>
-        
+        <button id="newUser">Har du inget konto? Registrera dig här</button>
     </div>
-    <div id="addUser" class="hidden">
-        <input id="newUserName" type="text" placeholder="Ange önskat användarnamn">
-        <p class="occupiedUsername" class="inputMessage"></p>
-        <input id="newPassword" type="password" placeholder="Lägg till lösenord">
-        <input id="tryNewPassword" type="password" placeholder="Upprepa lösenord">
-        <p class="noMatchPassword" class="inputMessage"></p>
-        <h3 class="newAccountAdded">Användare tillagd!</h3>
+
+    <div id="addUsername" class="hidden">
+        <div class="firstStep">
+            <input id="newUsername" type="text" placeholder="Ange önskat användarnamn">
+            <p class="occupiedUsername inputMessage">hej</p>
+            <button class="tryUsername">Fortsätt</button>
+        </div>
+        <div class="addPassword hidden">
+            <input id="newPassword" type="password" placeholder="Lägg till lösenord">
+            <input id="tryNewPassword" type="password" placeholder="Upprepa lösenord">
+            <p class="noMatchPassword" class="inputMessage">hej</p>
+            <button>Skapa konto</button>
+            <p class="newAccountAdded">Användare tillagd!</p>
+        </div>
     </div>
     </main>
 </body>

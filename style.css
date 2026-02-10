@@ -11,7 +11,7 @@ header{
     height: 5rem;
     width: 100vw;
     padding: 2rem;
-    background-color: rgb(255, 107, 176);
+    background-color: rgb(247, 158, 172);
     
     
 
@@ -26,32 +26,64 @@ main {
     
 }
 
+/*Inloggningsfältet*/
 #login-field {
     display: flex;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     gap:1rem;
+    width:15rem;
+    height: 15rem;
+    background-color: blue;
+    border-radius:10px;
 }
 #login-field.hidden{
     display:none;
 }
+#loginButton {
+    width:13rem;
+    height:1.5rem;
+}
+#login-field input{
+    width:13rem;
+}
+#newUser{
+    font-size: 0.6rem;
+}
 
-#addUser{
+/*Lägg till användare*/
+#addUsername{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
     background-color: rgba(214, 29, 103, 0.336);
     height: 15rem;
+    width: 15rem;
+    border-radius:10px;
+    gap: 1rem;
 }
-#addUser.hidden{
+#addUsername.hidden{
     display: none;
 }
 
-#addUser input{
-    padding:2px 7px 2px 7px;
-    margin: 1rem;
+#addUsername input{
+    width: 13rem;
 }
+#addUsername button{
+    width: 13rem;
+    height: 1.5rem;
+}
+#addUsername p{
+font-size: 0.7rem;
+font-family: Arial, Helvetica, sans-serif;
+
+
+}
+
+
 
 .hidden{
     display: none;
