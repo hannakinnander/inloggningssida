@@ -23,9 +23,13 @@
         <button id="loginButton">Logga in</button>
         
     </div>
-    <div class="addUser" hidden>
-        <input type="text">
-        <p class="inputMessage"></p>
+    <div id="addUser" class="hidden">
+        <input id="newUserName" type="text" placeholder="Ange önskat användarnamn">
+        <p class="occupiedUsername" class="inputMessage"></p>
+        <input id="newPassword" type="password" placeholder="Lägg till lösenord">
+        <input id="tryNewPassword" type="password" placeholder="Upprepa lösenord">
+        <p class="noMatchPassword" class="inputMessage"></p>
+        <h3 class="newAccountAdded">Användare tillagd!</h3>
     </div>
     </main>
 </body>

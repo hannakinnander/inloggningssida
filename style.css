@@ -12,7 +12,9 @@ header{
     width: 100vw;
     padding: 2rem;
     background-color: rgb(255, 107, 176);
-    position: fixed;
+    
+    
+
 }
 main {
     background-color: pink;
@@ -21,6 +23,7 @@ main {
     align-items: center;
     flex-direction: column;
     min-height: 100vh;
+    
 }
 
 #login-field {
@@ -34,3 +37,22 @@ main {
     display:none;
 }
 
+#addUser{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgba(214, 29, 103, 0.336);
+    height: 15rem;
+}
+#addUser.hidden{
+    display: none;
+}
+
+#addUser input{
+    padding:2px 7px 2px 7px;
+    margin: 1rem;
+}
+
+.hidden{
+    display: none;
+}
