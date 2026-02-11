@@ -20,25 +20,24 @@
         <h3></h3>
     </div>
     <main>
-    <div id="login-field">
-        
-        <input id="username" type="text" placeholder="Ange användarnamn">
-        <input id="password" type="password" placeholder="Ange lösenord"> 
+    <div class="loginField">
+        <input class="username" type="text" placeholder="Ange användarnamn">
+        <input class="password" type="password" placeholder="Ange lösenord"> 
         <p class="cantLogin hidden">Användarnamn eller lösenord stämmer inte</p>
-        <button id="loginButton">Logga in</button>
-        <button id="newUser">Har du inget konto? Registrera dig här</button>
+        <button class="loginButton">Logga in</button>
+        <button class="newUser">Har du inget konto? Registrera dig här</button>
     </div>
 
-    <div id="addUsername" class="hidden">
+    <div class="addNewUserField hidden">
         <div class="checkUsernameBox">
-            <input id="newUsername" type="text" placeholder="Ange önskat användarnamn">
+            <input class="newUsername" type="text" placeholder="Ange önskat användarnamn">
             <p class="occupiedUsername hidden">Användarnamnet är upptaget</p>
             <button class="tryUsername">Fortsätt</button>
         </div>
     
         <div class="addPassword hidden">
-            <input id="newPassword" type="password" placeholder="Lägg till lösenord">
-            <input id="tryNewPassword" type="password" placeholder="Upprepa lösenord">
+            <input class="newPassword" type="password" placeholder="Lägg till lösenord">
+            <input class="tryNewPassword" type="password" placeholder="Upprepa lösenord">
             <p class="noMatchPassword inputMessage hidden">Lösenorden matchar inte</p>
             <button class="createAccount">Skapa konto</button>
         </div>

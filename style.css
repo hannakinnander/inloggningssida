@@ -12,9 +12,6 @@ header{
     width: 100vw;
     padding: 2rem;
     background-color: rgb(247, 158, 172);
-    
-    
-
 }
 main {
     background-color: pink;
@@ -29,7 +26,7 @@ main {
 }
 
 /*Inloggningsfältet*/
-#login-field {
+.loginField {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,14 +37,14 @@ main {
     background-color: rgba(253, 241, 127, 0.74);
     border-radius:10px;
 }
-#login-field.hidden{
+.loginField.hidden{
     display:none;
 }
-#loginButton {
+.loginButton {
     width:13rem;
     height:1.5rem;
 }
-#login-field input{
+.loginField input{
     width:13rem;
 }
 #newUser{
@@ -63,7 +60,7 @@ button:hover{
 }
 
 /*Lägg till användare*/
-#addUsername{
+.addNewUserField{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,30 +73,29 @@ button:hover{
     border-radius:10px;
     gap: 1rem;
 }
-.firstStep{
+.addNewUserField.hidden{
+    display: none;
+}
+
+.addNewUserField input{
+    width: 13rem;
+}
+.addNewUserField button{
+    width: 13rem;
+    height: 1.5rem;
+}
+.checkUsernameBox{
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
-.firstStep.hidden{
-    display: none;
-}
-#addUsername.hidden{
+.checkUsernameBox.hidden{
     display: none;
 }
 
-#addUsername input{
-    width: 13rem;
-}
-#addUsername button{
-    width: 13rem;
-    height: 1.5rem;
-}
-#addUsername p{
+.addNewUserField p{
 font-size: 0.7rem;
 font-family: Arial, Helvetica, sans-serif;
-
-
 }
 .occupiedUsername.hidden{
     display: none;
