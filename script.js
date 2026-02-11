@@ -35,6 +35,52 @@ window.addEventListener("load", updateStatus);
 //Behållare för användare
 let savedUsers = [];
 let username = null;
+function resetInputs(){
+    const inputs = document.querySelectorAll("input");
+    for (let input of inputs){
+        input.value = "";
+    }
+function resetErrorMessages(){
+    const messages = document.querySelectorAll(".message");
+    for (let message of messages){
+        message.classList.add("hidden");
+    }
+}
+}
+function updateStatus(){
+let loggedInUser = localStorage.getItem("loggedIn");
+    
+if (loggedInUser){
+    loggedIn.classList.remove("hidden");
+    welcomeMessage.classList.remove("hidden");
+    welcomeMessage.textContent = "Inloggad som " + loggedInUser;
+    loginField.classList.add("hidden");
+    changeAccountButton.classList.remove("hidden");
+    newAccountAdded.classList.add("hidden");
+    logOut.classList.remove("hidden");
+    goBack.classList.add("hidden");
+    addNewUserField.classList.add("hidden");
+    resetInputs();
+    resetErrorMessages();
+    cantLogin.classList.add("hidden");
+}
+else {
+    loggedIn.classList.add("hidden");
+    loginField.classList.remove("hidden");
+    changeAccountButton.classList.add("hidden");
+    logOut.classList.add("hidden");
+    goBack.classList.add("hidden");
+    loginButton.textContent = "Logga in";
+    addNewUserField.classList.add("hidden");
+    usernameInput.value = "";
+    passwordInput.value= "";
+    newUsername.value = "";
+    usernameInput.value = "";
+    passwordInput.value= "";
+    cantLogin.classList.add("hidden");
+    
+}
+}
 //Logga in
  loginButton.addEventListener("click", logIn);
 
@@ -51,6 +97,7 @@ let username = null;
             loggedIn.classList.remove("hidden");
             welcomeMessage.textContent = "Välkommen, " + username + "!";
             localStorage.setItem("loggedIn", username);
+            changeAccountButton.classlist.add("hidden");
        }
        else{
         cantLogin.classList.remove("hidden");
@@ -60,6 +107,9 @@ let username = null;
     //När man trycker Registrera dig här
     newUserButton.addEventListener("click", goToAddUserPage);
     function goToAddUserPage(){
+        loggedIn.classList.add("hidden");
+        changeAccountButton.classList.add("hidden");
+        logOut.classList.add("hidden");
         loginField.classList.add("hidden");
         addNewUserField.classList.remove("hidden");
         checkUsernameBox.classList.remove("hidden");
@@ -105,34 +155,36 @@ let username = null;
     }
 };
 
-function updateStatus(){
-let loggedInUser = localStorage.getItem("loggedIn");
-if (loggedInUser){
-    loggedIn.classList.remove("hidden");
-    welcomeMessage.classList.remove("hidden");
-    welcomeMessage.textContent = "Inloggad som " + loggedInUser;
-    loginField.classList.add("hidden");
-    changeAccountButton.classList.remove("hidden");
-    newAccountAdded.classList.add("hidden");
-    logOut.classList.remove("hidden");
-    goBack.classList.add("hidden");
-}
-else {
-    loggedIn.classList.add("hidden");
-    loginField.classList.remove("hidden");
-    changeAccountButton.classList.add("hidden");
-    logOut.classList.add("hidden");
-    goBack.classList.add("hidden");
-    loginButton.textContent = "Logga in";
-}
-}
+
 //När man trycker Tillbaka till startsida
 goBack.addEventListener("click", updateStatus);
 
 //När man trycker Logga in på annat konto
 changeAccountButton.addEventListener("click", showLogin);
 function showLogin(){
-    usernameInput.value = "";
-    passwordInput.value= "";
-    loginField.classList.remove("hidden");
+  loginField.classList.remove("hidden");
+  resetInputs();
+  
+}
+    
+
+
+//När man loggar ut
+logOut.addEventListener("click", deleteUser);
+function deleteUser(){
+    let loggedInUser = localStorage.getItem("loggedIn");
+    let savedUsers = JSON.parse(localStorage.getItem("user"));
+    for (let i=0; i<savedUsers.length; i++){
+        if (savedUsers[i].username === loggedInUser)
+            savedUsers.splice(i, 1);
+         localStorage.setItem("user", JSON.stringify(savedUsers));
+         localStorage.removeItem("loggedIn");
+         updateStatus();
+        break;
+    }
+    if (savedUsers.length ===0){
+        localStorage.removeItem("user");
+        return;
+    }
+    updateStatus();
 }
