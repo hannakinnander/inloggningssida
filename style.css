@@ -4,22 +4,58 @@
     box-sizing: border-box;
 }
 
+body {
+   background-color: rgb(255, 177, 177);
+   
+}
 header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
     width: 100vw;
-    padding: 2rem;
-    background-color: rgb(247, 158, 172);
+    padding: 1rem;
+    background-color: rgb(247, 124, 142);
+}
+header h1{
+    font-family: "DynaPuff", system-ui;
+    color:rgb(94, 9, 37);
+    text-shadow: 1px 1px 1px black;
+  
+}
+.loggedIn{
+    height:3rem;
+    background-color: rgb(250, 181, 90);
+    box-shadow: 1px 1px 2px rgb(141, 141, 141);
+}
+.loggedIn h3{
+    padding: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 1rem;
+}
+
+button {
+   box-shadow: 1px 1px 2px black;
+   padding: 0.3rem;
+   border-radius: 5px;
+   border: 0px;
+   color:rgb(94, 9, 37);
+}
+.logOut{
+    background-color: rgb(187, 87, 87);
+}
+button:hover{
+    transform: translateY(-5%);
+    cursor: pointer;
 }
 main {
-    background-color: pink;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 100vh;
 }
 .hidden{
     display: none;
@@ -27,6 +63,10 @@ main {
 
 /*Inloggningsfältet*/
 .loginField {
+
+background-color: #f19f82;
+}
+.inputbox{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,8 +74,8 @@ main {
     gap:1rem;
     width:15rem;
     height: 15rem;
-    background-color: rgba(253, 241, 127, 0.74);
     border-radius:10px;
+    box-shadow: 1px 1px 4px rgb(145, 145, 145);
 }
 .loginField.hidden{
     display:none;
@@ -43,16 +83,16 @@ main {
 .loginButton {
     width:13rem;
     height:1.5rem;
+    background-color: rgb(78, 23, 23);
+    color: white;
 }
 .loginField input{
     width:13rem;
 }
-#newUser{
+.newUser{
     font-size: 0.6rem;
 }
-button:hover{
-    cursor: pointer;
-}
+
 .cantLogin{
     text-align: center;
     font-size: 0.7rem;
@@ -61,28 +101,15 @@ button:hover{
 
 /*Lägg till användare*/
 .addNewUserField{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    align-content: center;
-    background-color: rgba(214, 29, 103, 0.336);
-    height: 15rem;
-    width: 15rem;
-    border-radius:10px;
-    gap: 1rem;
+   background-color: rgb(147, 182, 214);
 }
 .addNewUserField.hidden{
     display: none;
 }
 
-.addNewUserField input{
-    width: 13rem;
-}
 .addNewUserField button{
-    width: 13rem;
-    height: 1.5rem;
+    background-color: rgb(78, 23, 23);
+    color: white;
 }
 .checkUsernameBox{
     display: flex;
@@ -93,9 +120,10 @@ button:hover{
     display: none;
 }
 
-.addNewUserField p{
-font-size: 0.7rem;
+.message{
+font-size: 0.6rem;
 font-family: Arial, Helvetica, sans-serif;
+color:rgb(187, 10, 10);
 }
 .occupiedUsername.hidden{
     display: none;
@@ -113,13 +141,19 @@ font-family: Arial, Helvetica, sans-serif;
 
 .newAccountAdded {
     text-align: center;
-}
-
-.loggedIn h3{
-    margin-left: 2rem;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+    transition: ease-in;
+    transition-duration: 2s;
 }
+input {
+width: 13rem;
+padding: 0.3rem;
+border-radius: 3px;
+border: 0px;
+}
+
 
 
