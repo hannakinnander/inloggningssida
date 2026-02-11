@@ -27,7 +27,6 @@ const newAccountAdded = document.querySelector(".newAccountAdded");
 
 //Element som har med inloggad-vyn att göra
 const loggedIn= document.querySelector(".loggedIn");
-const welcomeMessage = document.querySelector(".welcomeMessage");
 const loggedInStatus = document.querySelector(".loggedIn h3");
 
 //Kollar när man kommer in om det finns en inloggad användare
@@ -54,7 +53,6 @@ function startPageLoggedIn(){
     resetErrorMessages();
     loggedIn.classList.remove("hidden");
     loggedInStatus.classList.remove("hidden");
-    
     loginField.classList.add("hidden");
     changeAccountButton.classList.remove("hidden");
     newAccountAdded.classList.add("hidden");
@@ -69,7 +67,6 @@ function loggedOutView(){
     addNewUserField.classList.add("hidden");
     loginField.classList.remove("hidden");
     loggedIn.classList.add("hidden");
-    
     goBack.classList.add("hidden");
     changeAccountButton.classList.add("hidden");
     logOut.classList.add("hidden");
@@ -82,14 +79,12 @@ function resetNewUserField(){
     newAccountAdded.classList.add("hidden");
 }
 
-
 function updateStatus(){
 let loggedInUser = localStorage.getItem("loggedIn");
     
 if (loggedInUser){
     startPageLoggedIn();
     loggedInStatus.textContent = "Välkommen, du är inloggad som " + loggedInUser;
-    
 }
 else {
     loggedOutView();
@@ -108,14 +103,11 @@ function logIn(){
     if (foundUser){
         localStorage.setItem("loggedIn", username);
         updateStatus();
-    
     }
     else{
         cantLogin.classList.remove("hidden");
     }
 }
-
-
 //När man trycker Registrera dig här
 newUserButton.addEventListener("click", goToAddUserPage);
 function goToAddUserPage(){
@@ -128,7 +120,6 @@ function goToAddUserPage(){
     goBack.classList.remove("hidden");
     resetNewUserField();
 };
-
  //När man fyller i önskat användarnamn
 tryUsername.addEventListener("click", addNewUser);
 
@@ -176,7 +167,6 @@ changeAccountButton.addEventListener("click", showLogin);
 function showLogin(){
   loginField.classList.remove("hidden");
   resetInputs();
-  
 }
     
 //När man loggar ut
