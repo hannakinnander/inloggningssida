@@ -56,6 +56,11 @@ main {
 button:hover{
     cursor: pointer;
 }
+.cantLogin{
+    text-align: center;
+    font-size: 0.7rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 /*Lägg till användare*/
 #addUsername{
@@ -113,8 +118,12 @@ font-family: Arial, Helvetica, sans-serif;
 .newAccountAdded {
     text-align: center;
 }
-/* .newAccountAdded.hidden {
-    display: none;
-} */
+
+.loggedIn h3{
+    margin-left: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 1rem;
+}
 
 

@@ -3,30 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inloggningssida</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Hannas kammare</h1>
+        <h1>Hannas inloggningssida</h1>
         <div class="headerRight">
             <button class="headerButton goBack hidden">Tillbaka till startsida</button>
-            <button id="logOut" class="headerButton hidden">Logga ut</button>
+            <button class="headerButton changeAccount hidden">Logga in på annat konto</button>
+            <button class="headerButton logOut hidden">Logga ut</button>
         </div>
     </header>
+     <div class="loggedIn hidden">
+        <h3></h3>
+    </div>
     <main>
     <div id="login-field">
         
         <input id="username" type="text" placeholder="Ange användarnamn">
         <input id="password" type="password" placeholder="Ange lösenord"> 
-       
+        <p class="cantLogin hidden">Användarnamn eller lösenord stämmer inte</p>
         <button id="loginButton">Logga in</button>
         <button id="newUser">Har du inget konto? Registrera dig här</button>
     </div>
 
     <div id="addUsername" class="hidden">
-        <div class="firstStep">
+        <div class="checkUsernameBox">
             <input id="newUsername" type="text" placeholder="Ange önskat användarnamn">
             <p class="occupiedUsername hidden">Användarnamnet är upptaget</p>
             <button class="tryUsername">Fortsätt</button>
@@ -40,6 +44,8 @@
         </div>
         <h2 class="newAccountAdded hidden"></h2>
     </div>
+
+   
     </main>
 </body>
 </html>
