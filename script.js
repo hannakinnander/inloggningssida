@@ -29,6 +29,9 @@ const newAccountAdded = document.querySelector(".newAccountAdded");
 const loggedIn= document.querySelector(".loggedIn");
 const welcomeMessage = document.querySelector(".loggedIn h3");
 
+//Kollar när man kommer in om det finns en inloggad användare
+window.addEventListener("load", updateStatus);
+
 //Behållare för användare
 let savedUsers = [];
 let username = null;
@@ -82,4 +85,54 @@ let username = null;
     }
     
     //När man lägger till lösenord
-    
+    createAccount.addEventListener("click", createAccountHandler);
+
+    function createAccountHandler(){
+        if (newPassword.value === tryNewPassword.value){
+            const newAccount = {
+                username: username,
+                password: newPassword.value
+                };
+    savedUsers.push(newAccount);
+    localStorage.setItem("user", JSON.stringify(savedUsers));
+    newAccountAdded.classList.remove("hidden");
+    newAccountAdded.textContent= "Användaren " + username + " har lagts till!"
+    addPasswordField.classList.add("hidden");
+    }
+    else{
+        noMatchPassword.classList.remove("hidden");
+        return;
+    }
+};
+
+function updateStatus(){
+let loggedInUser = localStorage.getItem("loggedIn");
+if (loggedInUser){
+    loggedIn.classList.remove("hidden");
+    welcomeMessage.classList.remove("hidden");
+    welcomeMessage.textContent = "Inloggad som " + loggedInUser;
+    loginField.classList.add("hidden");
+    changeAccountButton.classList.remove("hidden");
+    newAccountAdded.classList.add("hidden");
+    logOut.classList.remove("hidden");
+    goBack.classList.add("hidden");
+}
+else {
+    loggedIn.classList.add("hidden");
+    loginField.classList.remove("hidden");
+    changeAccountButton.classList.add("hidden");
+    logOut.classList.add("hidden");
+    goBack.classList.add("hidden");
+    loginButton.textContent = "Logga in";
+}
+}
+//När man trycker Tillbaka till startsida
+goBack.addEventListener("click", updateStatus);
+
+//När man trycker Logga in på annat konto
+changeAccountButton.addEventListener("click", showLogin);
+function showLogin(){
+    usernameInput.value = "";
+    passwordInput.value= "";
+    loginField.classList.remove("hidden");
+}
