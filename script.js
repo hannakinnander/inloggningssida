@@ -18,6 +18,7 @@ const checkUsernameBox = document.querySelector(".checkUsernameBox");
 const newUsername = document.querySelector(".newUsername");
 const occupiedUsername = document.querySelector(".occupiedUsername");
 const tryUsername = document.querySelector(".tryUsername");
+const addPasswordField = document.querySelector(".addPasswordField")
 const newPassword = document.querySelector(".newPassword");
 const tryNewPassword = document.querySelector(".tryNewPassword");
 const createAccount = document.querySelector(".createAccount");
@@ -56,10 +57,29 @@ let username = null;
     //När man trycker Registrera dig här
     newUserButton.addEventListener("click", goToAddUserPage);
     function goToAddUserPage(){
-    loginField.classList.add("hidden");
-    addNewUserField.classList.remove("hidden");
-    checkUsernameBox.classList.remove("hidden");
-    goBack.classList.remove("hidden");
-    
+        loginField.classList.add("hidden");
+        addNewUserField.classList.remove("hidden");
+        checkUsernameBox.classList.remove("hidden");
+        goBack.classList.remove("hidden");
     };
+
+    //När man fyller i önskat användarnamn
+    tryUsername.addEventListener("click", addNewUser);
+
+    function addNewUser(){
+        username = newUsername.value.trim();
+        const usernameTaken = savedUsers.some(
+            newAccount => newAccount.username === username);
+    
+        if (usernameTaken){
+            occupiedUsername.classList.remove("hidden");
+            return;
+    }
+    else {
+        checkUsernameBox.classList.add("hidden");
+        addPasswordField.classList.remove("hidden");
+    }
+    }
+    
+    //När man lägger till lösenord
     
