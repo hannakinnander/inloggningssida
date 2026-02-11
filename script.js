@@ -27,7 +27,8 @@ const newAccountAdded = document.querySelector(".newAccountAdded");
 
 //Element som har med inloggad-vyn att göra
 const loggedIn= document.querySelector(".loggedIn");
-const welcomeMessage = document.querySelector(".loggedIn h3");
+const welcomeMessage = document.querySelector(".welcomeMessage");
+const loggedInStatus = document.querySelector(".loggedIn h3");
 
 //Kollar när man kommer in om det finns en inloggad användare
 window.addEventListener("load", updateStatus);
@@ -40,121 +41,132 @@ function resetInputs(){
     for (let input of inputs){
         input.value = "";
     }
+}
+//Funktioner för att återställa sidan
 function resetErrorMessages(){
     const messages = document.querySelectorAll(".message");
     for (let message of messages){
         message.classList.add("hidden");
     }
 }
-}
-function updateStatus(){
-let loggedInUser = localStorage.getItem("loggedIn");
-    
-if (loggedInUser){
+function startPageLoggedIn(){
+    resetInputs();
+    resetErrorMessages();
     loggedIn.classList.remove("hidden");
-    welcomeMessage.classList.remove("hidden");
-    welcomeMessage.textContent = "Inloggad som " + loggedInUser;
+    loggedInStatus.classList.remove("hidden");
+    
     loginField.classList.add("hidden");
     changeAccountButton.classList.remove("hidden");
     newAccountAdded.classList.add("hidden");
     logOut.classList.remove("hidden");
     goBack.classList.add("hidden");
     addNewUserField.classList.add("hidden");
-    resetInputs();
-    resetErrorMessages();
     cantLogin.classList.add("hidden");
 }
-else {
-    loggedIn.classList.add("hidden");
+function loggedOutView(){
+    resetErrorMessages();
+    resetInputs();
+    addNewUserField.classList.add("hidden");
     loginField.classList.remove("hidden");
+    loggedIn.classList.add("hidden");
+    
+    goBack.classList.add("hidden");
     changeAccountButton.classList.add("hidden");
     logOut.classList.add("hidden");
-    goBack.classList.add("hidden");
-    loginButton.textContent = "Logga in";
-    addNewUserField.classList.add("hidden");
-    usernameInput.value = "";
-    passwordInput.value= "";
-    newUsername.value = "";
-    usernameInput.value = "";
-    passwordInput.value= "";
-    cantLogin.classList.add("hidden");
+};
+
+function resetNewUserField(){
+    checkUsernameBox.classList.remove("hidden");
+    addPasswordField.classList.add("hidden");
+    occupiedUsername.classList.add("hidden");
+    newAccountAdded.classList.add("hidden");
+}
+
+
+function updateStatus(){
+let loggedInUser = localStorage.getItem("loggedIn");
+    
+if (loggedInUser){
+    startPageLoggedIn();
+    loggedInStatus.textContent = "Välkommen, du är inloggad som " + loggedInUser;
     
 }
+else {
+    loggedOutView();
 }
+}
+
 //Logga in
- loginButton.addEventListener("click", logIn);
+loginButton.addEventListener("click", logIn);
 
-    function logIn(){
-       savedUsers = JSON.parse(localStorage.getItem("user")) || [];
-       username = usernameInput.value.trim();
-       const password = passwordInput.value;
-       const foundUser = savedUsers.find(user => user.username === username &&
-            user.password === password);
-       if (foundUser){
-            loginField.classList.add("hidden");
-            goBack.classList.remove("hidden");
-            logOut.classList.remove("hidden");
-            loggedIn.classList.remove("hidden");
-            welcomeMessage.textContent = "Välkommen, " + username + "!";
-            localStorage.setItem("loggedIn", username);
-            changeAccountButton.classlist.add("hidden");
-       }
-       else{
-        cantLogin.classList.remove("hidden");
-       }
-    }
-
-    //När man trycker Registrera dig här
-    newUserButton.addEventListener("click", goToAddUserPage);
-    function goToAddUserPage(){
-        loggedIn.classList.add("hidden");
-        changeAccountButton.classList.add("hidden");
-        logOut.classList.add("hidden");
-        loginField.classList.add("hidden");
-        addNewUserField.classList.remove("hidden");
-        checkUsernameBox.classList.remove("hidden");
-        goBack.classList.remove("hidden");
-    };
-
-    //När man fyller i önskat användarnamn
-    tryUsername.addEventListener("click", addNewUser);
-
-    function addNewUser(){
-        username = newUsername.value.trim();
-        const usernameTaken = savedUsers.some(
-            newAccount => newAccount.username === username);
+function logIn(){
+    savedUsers = JSON.parse(localStorage.getItem("user")) || [];
+    username = usernameInput.value.trim();
+    const password = passwordInput.value;
+    const foundUser = savedUsers.find(user => user.username === username &&
+        user.password === password);
+    if (foundUser){
+        localStorage.setItem("loggedIn", username);
+        updateStatus();
     
-        if (usernameTaken){
-            occupiedUsername.classList.remove("hidden");
-            return;
+    }
+    else{
+        cantLogin.classList.remove("hidden");
+    }
+}
+
+
+//När man trycker Registrera dig här
+newUserButton.addEventListener("click", goToAddUserPage);
+function goToAddUserPage(){
+    loggedIn.classList.add("hidden");
+    changeAccountButton.classList.add("hidden");
+    logOut.classList.add("hidden");
+    loginField.classList.add("hidden");
+    addNewUserField.classList.remove("hidden");
+    checkUsernameBox.classList.remove("hidden");
+    goBack.classList.remove("hidden");
+    resetNewUserField();
+};
+
+ //När man fyller i önskat användarnamn
+tryUsername.addEventListener("click", addNewUser);
+
+function addNewUser(){
+    username = newUsername.value.trim();
+    const usernameTaken = savedUsers.some(
+        newAccount => newAccount.username === username);
+    
+    if (usernameTaken){
+        occupiedUsername.classList.remove("hidden");
+        return;
     }
     else {
         checkUsernameBox.classList.add("hidden");
         addPasswordField.classList.remove("hidden");
     }
-    }
+}
     
-    //När man lägger till lösenord
-    createAccount.addEventListener("click", createAccountHandler);
+//När man lägger till lösenord
+createAccount.addEventListener("click", createAccountHandler);
 
-    function createAccountHandler(){
-        if (newPassword.value === tryNewPassword.value){
-            const newAccount = {
-                username: username,
-                password: newPassword.value
-                };
-    savedUsers.push(newAccount);
-    localStorage.setItem("user", JSON.stringify(savedUsers));
-    newAccountAdded.classList.remove("hidden");
-    newAccountAdded.textContent= "Användaren " + username + " har lagts till!"
-    addPasswordField.classList.add("hidden");
+function createAccountHandler(){
+    if (newPassword.value === tryNewPassword.value){
+        const newAccount = {
+            username: username,
+            password: newPassword.value
+            };
+        savedUsers.push(newAccount);
+        localStorage.setItem("user", JSON.stringify(savedUsers));
+        newAccountAdded.classList.remove("hidden");
+        newAccountAdded.textContent= "Användaren " + username + " har lagts till!"
+        addPasswordField.classList.add("hidden");
     }
     else{
         noMatchPassword.classList.remove("hidden");
         return;
     }
 };
-
 
 //När man trycker Tillbaka till startsida
 goBack.addEventListener("click", updateStatus);
@@ -167,24 +179,10 @@ function showLogin(){
   
 }
     
-
-
 //När man loggar ut
 logOut.addEventListener("click", deleteUser);
 function deleteUser(){
-    let loggedInUser = localStorage.getItem("loggedIn");
-    let savedUsers = JSON.parse(localStorage.getItem("user"));
-    for (let i=0; i<savedUsers.length; i++){
-        if (savedUsers[i].username === loggedInUser)
-            savedUsers.splice(i, 1);
-         localStorage.setItem("user", JSON.stringify(savedUsers));
-         localStorage.removeItem("loggedIn");
-         updateStatus();
-        break;
-    }
-    if (savedUsers.length ===0){
-        localStorage.removeItem("user");
-        return;
-    }
-    updateStatus();
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("user");
+    loggedOutView();
 }
