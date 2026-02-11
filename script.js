@@ -132,6 +132,9 @@ function addNewUser(){
         occupiedUsername.classList.remove("hidden");
         return;
     }
+    else if (newUsername.value ===""){
+    return;
+    }
     else {
         checkUsernameBox.classList.add("hidden");
         addPasswordField.classList.remove("hidden");
@@ -142,7 +145,7 @@ function addNewUser(){
 createAccount.addEventListener("click", createAccountHandler);
 
 function createAccountHandler(){
-    if (newPassword.value === tryNewPassword.value){
+    if (newPassword.value !== "" && newPassword.value === tryNewPassword.value){
         const newAccount = {
             username: username,
             password: newPassword.value
@@ -153,6 +156,11 @@ function createAccountHandler(){
         newAccountAdded.textContent= "Användaren " + username + " har lagts till!"
         addPasswordField.classList.add("hidden");
     }
+    else if (newPassword.value === "" && tryNewPassword.value ===""){
+        noMatchPassword.classList.add("hidden");
+        return;
+    }
+
     else{
         noMatchPassword.classList.remove("hidden");
         return;
