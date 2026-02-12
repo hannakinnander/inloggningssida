@@ -33,9 +33,7 @@ header h1{
     border-radius: 0px 10px 10px 0px;
     box-shadow: 1px 1px 2px black;
 }
-.fa-user{
-    color:#420b0b
-}
+
 
 .loggedIn p{
    
@@ -43,7 +41,7 @@ header h1{
     font-family: "VT323", monospace;
     font-weight: 400;
     font-size: 1rem;
-    color:#420b0b
+    
 }
 
 button {
@@ -169,5 +167,13 @@ border: 0px;
 }
 .changeAccountBG{
     background-color: rgb(200, 182, 224);
+}
+.welcomeUser{
+    background-color: #5cb87f;
+}
+.welcomeUser h2{
+    font-family: "DynaPuff", system-ui;
+    font-weight: 100;
+    color:rgb(0, 0, 0);
 }
 
