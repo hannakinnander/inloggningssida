@@ -52,6 +52,7 @@ function resetErrorMessages(){
 function startPageLoggedIn(){
     resetInputs();
     resetErrorMessages();
+    body.classList.remove("changeAccountBG", "startpageBG");
     body.classList.add("loggedInBG");
     loggedIn.classList.remove("hidden");
     loggedInStatus.classList.remove("hidden");
