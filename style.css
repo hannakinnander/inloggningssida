@@ -6,7 +6,6 @@
 
 body {
    background-color: rgb(255, 177, 177);
-   
 }
 header{
     display: flex;
@@ -24,16 +23,15 @@ header h1{
     text-shadow: 1px 1px 1px black;
   
 }
-.loggedIn{
-    height:3rem;
-    background-color: rgb(250, 181, 90);
-    box-shadow: 1px 1px 2px rgb(141, 141, 141);
-}
-.loggedIn h3{
-    padding: 1rem;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 100;
+
+.loggedIn p{
+    width: max-content;
+    padding:0.2rem;
+    background-color: white;
+    font-family: "VT323", monospace;
+    font-weight: 400;
     font-size: 1rem;
+    color:#0850bb
 }
 
 button {
@@ -63,9 +61,9 @@ main {
 
 /*Inloggningsfältet*/
 .loginField {
-
 background-color: #f19f82;
 }
+
 .inputbox{
     display: flex;
     justify-content: center;
@@ -93,15 +91,11 @@ background-color: #f19f82;
     font-size: 0.6rem;
 }
 
-.cantLogin{
-    text-align: center;
-    font-size: 0.7rem;
-    font-family: Arial, Helvetica, sans-serif;
-}
 
 /*Lägg till användare*/
 .addNewUserField{
-   background-color: rgb(147, 182, 214);
+   background-color: rgb(163, 136, 207);
+  
 }
 .addNewUserField.hidden{
     display: none;
@@ -143,10 +137,10 @@ color:rgb(187, 10, 10);
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
-    font-size: 1.5rem;
-    color: rgb(255, 255, 255);
-    transition: ease-in;
-    transition-duration: 2s;
+    font-size: 1rem;
+    color: rgb(82, 12, 12);
+    transform: scale(0.95);
+    transition: all 0.2s ease-out;
 }
 input {
 width: 13rem;
@@ -155,5 +149,13 @@ border-radius: 3px;
 border: 0px;
 }
 
-
+.startpageBG{
+    background-color: rgb(255, 177, 177);
+}
+.loggedInBG{
+    background-color: rgb(199, 221, 173);
+}
+.changeAccountBG{
+    background-color: rgb(200, 182, 224);
+}
 

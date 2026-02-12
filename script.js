@@ -2,7 +2,8 @@
 const goBack = document.querySelector(".goBack");
 const changeAccountButton = document.querySelector(".changeAccount");
 const logOut = document.querySelector(".logOut");
-
+//Body
+const body = document.querySelector("body");
 //Element som har med inloggnings-sektionen att göra.
 const loginField = document.querySelector(".loginField")
 const usernameInput = document.querySelector(".username");
@@ -27,7 +28,7 @@ const newAccountAdded = document.querySelector(".newAccountAdded");
 
 //Element som har med inloggad-vyn att göra
 const loggedIn= document.querySelector(".loggedIn");
-const loggedInStatus = document.querySelector(".loggedIn h3");
+const loggedInStatus = document.querySelector(".loggedIn p");
 
 //Kollar när man kommer in om det finns en inloggad användare
 window.addEventListener("load", updateStatus);
@@ -51,6 +52,7 @@ function resetErrorMessages(){
 function startPageLoggedIn(){
     resetInputs();
     resetErrorMessages();
+    body.classList.add("loggedInBG");
     loggedIn.classList.remove("hidden");
     loggedInStatus.classList.remove("hidden");
     loginField.classList.add("hidden");
@@ -65,6 +67,8 @@ function loggedOutView(){
     resetErrorMessages();
     resetInputs();
     addNewUserField.classList.add("hidden");
+    body.classList.remove("changeAccountBG", "loggedInBG");
+    body.classList.add("startpageBG");
     loginField.classList.remove("hidden");
     loggedIn.classList.add("hidden");
     goBack.classList.add("hidden");
@@ -84,7 +88,7 @@ let loggedInUser = localStorage.getItem("loggedIn");
     
 if (loggedInUser){
     startPageLoggedIn();
-    loggedInStatus.textContent = "Välkommen, du är inloggad som " + loggedInUser;
+    loggedInStatus.textContent = "Inloggad som: " + loggedInUser;
 }
 else {
     loggedOutView();
@@ -111,7 +115,8 @@ function logIn(){
 //När man trycker Registrera dig här
 newUserButton.addEventListener("click", goToAddUserPage);
 function goToAddUserPage(){
-    loggedIn.classList.add("hidden");
+    body.classList.remove("loggedInBG", "startpageBG");
+    body.classList.add("changeAccountBG");
     changeAccountButton.classList.add("hidden");
     logOut.classList.add("hidden");
     loginField.classList.add("hidden");
