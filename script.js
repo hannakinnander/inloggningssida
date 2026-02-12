@@ -30,6 +30,10 @@ const newAccountAdded = document.querySelector(".newAccountAdded");
 const loggedIn= document.querySelector(".loggedIn");
 const loggedInStatus = document.querySelector(".loggedIn p");
 
+//När man precis loggat in
+const welcomeUser = document.querySelector(".welcomeUser");
+const welcomeUserMessage = document.querySelector(".welcomeUser h2");
+
 //Kollar när man kommer in om det finns en inloggad användare
 window.addEventListener("load", updateStatus);
 
@@ -52,6 +56,7 @@ function resetErrorMessages(){
 function startPageLoggedIn(){
     resetInputs();
     resetErrorMessages();
+    welcomeUser.classList.add("hidden");
     body.classList.remove("changeAccountBG", "startpageBG");
     body.classList.add("loggedInBG");
     loggedIn.classList.remove("hidden");
@@ -67,6 +72,7 @@ function startPageLoggedIn(){
 function loggedOutView(){
     resetErrorMessages();
     resetInputs();
+    welcomeUser.classList.add("hidden");
     addNewUserField.classList.add("hidden");
     body.classList.remove("changeAccountBG", "loggedInBG");
     body.classList.add("startpageBG");
@@ -86,7 +92,7 @@ function resetNewUserField(){
 
 function updateStatus(){
 let loggedInUser = localStorage.getItem("loggedIn");
-    
+savedUsers = JSON.parse(localStorage.getItem("user")) || [];    
 if (loggedInUser){
     startPageLoggedIn();
     loggedInStatus.textContent = "Inloggad som: " + loggedInUser;
@@ -107,7 +113,11 @@ function logIn(){
         user.password === password);
     if (foundUser){
         localStorage.setItem("loggedIn", username);
-        updateStatus();
+        welcomeUser.classList.remove("hidden");
+        welcomeUserMessage.textContent = "Välkommen, " + username + "!";
+        loggedIn.classList.add("hidden");
+        loginField.classList.add("hidden");
+        setTimeout(updateStatus,2000);
     }
     else{
         cantLogin.classList.remove("hidden");
@@ -116,6 +126,7 @@ function logIn(){
 //När man trycker Registrera dig här
 newUserButton.addEventListener("click", goToAddUserPage);
 function goToAddUserPage(){
+    welcomeUser.classList.add("hidden");
     body.classList.remove("loggedInBG", "startpageBG");
     body.classList.add("changeAccountBG");
     changeAccountButton.classList.add("hidden");
@@ -179,8 +190,9 @@ goBack.addEventListener("click", updateStatus);
 //När man trycker Logga in på annat konto
 changeAccountButton.addEventListener("click", showLogin);
 function showLogin(){
-  loginField.classList.remove("hidden");
-  resetInputs();
+    welcomeUser.classList.add("hidden");
+    loginField.classList.remove("hidden");
+    resetInputs();
 }
     
 //När man loggar ut
