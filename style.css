@@ -25,10 +25,16 @@ header h1{
 }
 .loggedIn{
     display: flex;
-    background-color: #f19f82;
+    align-items: center;
+    background-color: #5cb87f;
     margin-top:1rem;
     width: max-content;
     padding:0.5rem;
+    border-radius: 0px 10px 10px 0px;
+    box-shadow: 1px 1px 2px black;
+}
+.fa-user{
+    color:#420b0b
 }
 
 .loggedIn p{
@@ -37,7 +43,7 @@ header h1{
     font-family: "VT323", monospace;
     font-weight: 400;
     font-size: 1rem;
-    color:#0850bb
+    color:#420b0b
 }
 
 button {
