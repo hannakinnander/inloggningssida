@@ -130,6 +130,8 @@ function logIn(){
         welcomeUserMessage.textContent = "Välkommen, " + username + "!";
         loggedIn.classList.add("hidden");
         loginField.classList.add("hidden");
+        logOut.classList.add("hidden");
+        goBack.classList.add("hidden");
         setTimeout(updateStatus,2000);
     }
     else{
@@ -141,7 +143,6 @@ newUserButton.addEventListener("click", goToAddUserPage);
 function goToAddUserPage(){
     welcomeUser.classList.add("hidden");
     changeAccountButton.classList.add("hidden");
-    logOut.classList.add("hidden");
     loginField.classList.add("hidden");
     addNewUserField.classList.remove("hidden");
     checkUsernameBox.classList.remove("hidden");
@@ -200,17 +201,16 @@ function createAccountHandler(){
 //När man trycker Tillbaka till startsida
 goBack.addEventListener("click", updateStatus);
 
-
-    
 //När man loggar ut
 logOut.addEventListener("click", deleteUser);
 function deleteUser(){
     localStorage.removeItem("loggedIn");
     localStorage.removeItem("user");
     showGoodbye();
-    setTimeout(loggedOutView, 2000);
+    setTimeout(updateStatus, 2000);
 }
 function showGoodbye(){
+    goBack.classList.add("hidden");
     loginField.classList.add("hidden");
     loggedIn.classList.add("hidden");
     changeAccountButton.classList.add("hidden");

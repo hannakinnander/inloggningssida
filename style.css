@@ -22,8 +22,8 @@ header h1{
     font-family: "DynaPuff", system-ui;
     color:rgb(94, 9, 37);
     text-shadow: 1px 1px 1px black;
-  
 }
+
 .loggedIn{
     display: flex;
     align-items: center;
@@ -35,14 +35,11 @@ header h1{
     box-shadow: 1px 1px 2px black;
 }
 
-
 .loggedIn p{
-   
     padding:0.2rem;
     font-family: "VT323", monospace;
     font-weight: 400;
     font-size: 1rem;
-    
 }
 
 button {
@@ -102,7 +99,6 @@ background-color: #f19f82;
     font-size: 0.6rem;
 }
 
-
 /*Lägg till användare*/
 .addNewUserField{
    background-color: #f19f82;
@@ -126,9 +122,9 @@ background-color: #f19f82;
 }
 
 .message{
-font-size: 0.6rem;
-font-family: Arial, Helvetica, sans-serif;
-color:rgb(187, 10, 10);
+    font-size: 0.6rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(187, 10, 10);
 }
 .occupiedUsername.hidden{
     display: none;
@@ -138,7 +134,6 @@ color:rgb(187, 10, 10);
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
 }
 .addPasswordField.hidden{
     display: none;
@@ -150,15 +145,14 @@ color:rgb(187, 10, 10);
     font-weight: 100;
     font-size: 1rem;
     color: rgb(82, 12, 12);
-    
 }
 input {
-width: 13rem;
-padding: 0.3rem;
-border-radius: 3px;
-border: 0px;
+    width: 13rem;
+    padding: 0.3rem;
+    border-radius: 3px;
+    border: 0px;
+    outline: none;
 }
-
 
 .loggedInBG{
     background-color: rgb(199, 221, 173);
