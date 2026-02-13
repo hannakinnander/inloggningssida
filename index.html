@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inloggningssida</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ef6a8a4dba.js" crossorigin="anonymous"></script>
+<body>
+    <header>
+        <h1>Hannas inloggningssida</h1>
+        <div class="headerRight">
+            <button class="headerButton goBack hidden">Tillbaka</button>
+            <button class="headerButton changeAccount hidden">Logga in på ett annat konto</button>
+            <button class="headerButton logOut hidden">Logga ut</button>
+        </div>
+    </header>
+     <div class="loggedIn hidden">
+       <i class="fa-solid fa-user"></i>
+       <p></p>
+    </div>
+    <main>
+    <div class="loginField inputbox">
+        <input class="username" type="text" placeholder="Ange användarnamn">
+        <input class="password" type="password" placeholder="Ange lösenord"> 
+        <p class="cantLogin message hidden">Användarnamn eller lösenord stämmer inte</p>
+        <button class="loginButton">Logga in</button>
+        <button class="newUser">Har du inget konto? Registrera dig här</button>
+    </div>
+
+    <div class="addNewUserField inputbox hidden">
+        <div class="checkUsernameBox">
+            <input class="newUsername" type="text" placeholder="Ange önskat användarnamn">
+            <p class="occupiedUsername message hidden">Användarnamnet är upptaget</p>
+            <button class="tryUsername">Fortsätt</button>
+        </div>
+    
+        <div class="addPasswordField hidden">
+            <input class="newPassword" type="password" placeholder="Lägg till lösenord">
+            <input class="tryNewPassword" type="password" placeholder="Upprepa lösenord">
+            <p class="noMatchPassword message hidden">Lösenorden matchar inte</p>
+            <button class="createAccount">Skapa konto</button>
+        </div>
+        <h2 class="newAccountAdded hidden"></h2>
+    </div>
+    <div class="welcomeUser inputbox hidden">
+        <h2></h2>
+    </div>
+    <div class="goodbyeUser inputbox hidden">
+        <h2>Loggar ut...</h2>
+    </div>
+    </main>
+</body>
+</html>
