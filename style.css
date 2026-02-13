@@ -9,6 +9,7 @@ body {
 }
 header{
     position: sticky;
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -99,10 +100,34 @@ input {
     height:1.6rem;
     background-color: rgb(78, 23, 23);
     color: white;
+    font-size: 1rem;
 }
 
 .newUser{
     font-size: 0.6rem;
+}
+@media (max-width: 500px){
+    .inputbox{
+        width: 100%;
+        aspect-ratio: 1 1;
+    }
+    .inputbox.hidden{
+        display: none;
+    }
+    
+    input{
+        font-size: 1.1rem;
+        width: 16rem;
+        font-weight: 100;
+    }
+    .inputbox button {
+        width: 16rem;
+    }
+    
+    body{
+        height: 100dvh;
+    }
+   
 }
 
 /*Lägg till användare*/
