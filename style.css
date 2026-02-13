@@ -8,7 +8,7 @@ body {
    background-color: rgb(255, 177, 177);
 }
 header{
-    position: relative;
+    position: sticky;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -78,23 +78,29 @@ background-color: #f19f82;
     align-items: center;
     flex-direction: column;
     gap:1rem;
-    width:15rem;
-    height: 15rem;
+    width:16rem;
+    height: 16rem;
     border-radius:10px;
     box-shadow: 1px 1px 4px rgb(145, 145, 145);
+}
+input {
+    font-size: 1rem;
+    width: 14rem;
+    padding: 0.3rem;
+    border-radius: 3px;
+    border: 0px;
+    outline: none;
 }
 .loginField.hidden{
     display:none;
 }
 .loginButton {
-    width:13rem;
-    height:1.5rem;
+    width:14rem;
+    height:1.6rem;
     background-color: rgb(78, 23, 23);
     color: white;
 }
-.loginField input{
-    width:13rem;
-}
+
 .newUser{
     font-size: 0.6rem;
 }
@@ -145,13 +151,6 @@ background-color: #f19f82;
     font-weight: 100;
     font-size: 1rem;
     color: rgb(82, 12, 12);
-}
-input {
-    width: 13rem;
-    padding: 0.3rem;
-    border-radius: 3px;
-    border: 0px;
-    outline: none;
 }
 
 .loggedInBG{
