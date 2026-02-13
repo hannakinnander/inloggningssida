@@ -34,6 +34,9 @@ const loggedInStatus = document.querySelector(".loggedIn p");
 const welcomeUser = document.querySelector(".welcomeUser");
 const welcomeUserMessage = document.querySelector(".welcomeUser h2");
 
+//När man loggar ut
+const goodbyeUser = document.querySelector(".goodbyeUser");
+
 //Kollar när man kommer in om det finns en inloggad användare
 window.addEventListener("load", updateStatus);
 
@@ -57,7 +60,6 @@ function startPageLoggedIn(){
     resetInputs();
     resetErrorMessages();
     welcomeUser.classList.add("hidden");
-    body.classList.remove("changeAccountBG", "startpageBG");
     body.classList.add("loggedInBG");
     loggedIn.classList.remove("hidden");
     loggedInStatus.classList.remove("hidden");
@@ -72,10 +74,10 @@ function startPageLoggedIn(){
 function loggedOutView(){
     resetErrorMessages();
     resetInputs();
+    goodbyeUser.classList.add("hidden");
     welcomeUser.classList.add("hidden");
     addNewUserField.classList.add("hidden");
-    body.classList.remove("changeAccountBG", "loggedInBG");
-    body.classList.add("startpageBG");
+    body.classList.remove("loggedInBG");
     loginField.classList.remove("hidden");
     loggedIn.classList.add("hidden");
     goBack.classList.add("hidden");
@@ -101,6 +103,16 @@ else {
     loggedOutView();
 }
 }
+//När man trycker Logga in på annat konto
+changeAccountButton.addEventListener("click", showLogin);
+function showLogin(){
+    changeAccountButton.classList.add("hidden");
+    goBack.classList.remove("hidden");
+    body.classList.remove("loggedInBG");
+    welcomeUser.classList.add("hidden");
+    loginField.classList.remove("hidden");
+    resetInputs();
+}
 
 //Logga in
 loginButton.addEventListener("click", logIn);
@@ -113,6 +125,7 @@ function logIn(){
         user.password === password);
     if (foundUser){
         localStorage.setItem("loggedIn", username);
+        body.classList.add("loggedInBG");
         welcomeUser.classList.remove("hidden");
         welcomeUserMessage.textContent = "Välkommen, " + username + "!";
         loggedIn.classList.add("hidden");
@@ -127,8 +140,6 @@ function logIn(){
 newUserButton.addEventListener("click", goToAddUserPage);
 function goToAddUserPage(){
     welcomeUser.classList.add("hidden");
-    body.classList.remove("loggedInBG", "startpageBG");
-    body.classList.add("changeAccountBG");
     changeAccountButton.classList.add("hidden");
     logOut.classList.add("hidden");
     loginField.classList.add("hidden");
@@ -169,9 +180,11 @@ function createAccountHandler(){
             };
         savedUsers.push(newAccount);
         localStorage.setItem("user", JSON.stringify(savedUsers));
+        goBack.classList.add("hidden");
         newAccountAdded.classList.remove("hidden");
         newAccountAdded.textContent= "Användaren " + username + " har lagts till!"
         addPasswordField.classList.add("hidden");
+        setTimeout(updateStatus, 2000);
     }
     else if (newPassword.value === "" && tryNewPassword.value ===""){
         noMatchPassword.classList.add("hidden");
@@ -187,18 +200,21 @@ function createAccountHandler(){
 //När man trycker Tillbaka till startsida
 goBack.addEventListener("click", updateStatus);
 
-//När man trycker Logga in på annat konto
-changeAccountButton.addEventListener("click", showLogin);
-function showLogin(){
-    welcomeUser.classList.add("hidden");
-    loginField.classList.remove("hidden");
-    resetInputs();
-}
+
     
 //När man loggar ut
 logOut.addEventListener("click", deleteUser);
 function deleteUser(){
     localStorage.removeItem("loggedIn");
     localStorage.removeItem("user");
-    loggedOutView();
+    showGoodbye();
+    setTimeout(loggedOutView, 2000);
+}
+function showGoodbye(){
+    loginField.classList.add("hidden");
+    loggedIn.classList.add("hidden");
+    changeAccountButton.classList.add("hidden");
+    logOut.classList.add("hidden");
+    body.classList.remove("loggedInBG");
+    goodbyeUser.classList.remove("hidden");
 }

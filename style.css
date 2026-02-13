@@ -6,22 +6,15 @@
 
 body {
    background-color: rgb(255, 177, 177);
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   
 }
-
 header{
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    
-    width: 100%;
-    max-width: 1000px;
-    height:7rem;
+    gap: 1rem;
+    width: 100vw;
     padding: 1rem;
     background-color: rgb(247, 124, 142);
 }
@@ -29,21 +22,19 @@ header h1{
     font-family: "DynaPuff", system-ui;
     color:rgb(94, 9, 37);
     text-shadow: 1px 1px 1px black;
-    padding-right: 2rem;
   
 }
 .loggedIn{
-    position:absolute;
-    top: 7rem;
-    left: 0;
     display: flex;
     align-items: center;
     background-color: #5cb87f;
+    margin-top:1rem;
     width: max-content;
     padding:0.5rem;
     border-radius: 0px 10px 10px 0px;
     box-shadow: 1px 1px 2px black;
 }
+
 
 .loggedIn p{
    
@@ -51,16 +42,9 @@ header h1{
     font-family: "VT323", monospace;
     font-weight: 400;
     font-size: 1rem;
+    
 }
-main{
-    width: 1000px;
-    background-color: #ff4400;
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+
 button {
    box-shadow: 1px 1px 2px black;
    padding: 0.3rem;
@@ -75,7 +59,13 @@ button:hover{
     transform: translateY(-5%);
     cursor: pointer;
 }
-
+main {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .hidden{
     display: none;
 }
@@ -83,10 +73,6 @@ button:hover{
 /*Inloggningsfältet*/
 .loginField {
 background-color: #f19f82;
-}
-.headerRight{
-    display: flex;
-    gap: 1rem;
 }
 
 .inputbox{
@@ -119,7 +105,7 @@ background-color: #f19f82;
 
 /*Lägg till användare*/
 .addNewUserField{
-   background-color: rgb(163, 136, 207);
+   background-color: #f19f82;
   
 }
 .addNewUserField.hidden{
@@ -140,9 +126,9 @@ background-color: #f19f82;
 }
 
 .message{
-    font-size: 0.6rem;
-    font-family: Arial, Helvetica, sans-serif;
-    color:rgb(187, 10, 10);
+font-size: 0.6rem;
+font-family: Arial, Helvetica, sans-serif;
+color:rgb(187, 10, 10);
 }
 .occupiedUsername.hidden{
     display: none;
@@ -167,31 +153,41 @@ background-color: #f19f82;
     
 }
 input {
-    width: 13rem;
-    padding: 0.3rem;
-    border-radius: 3px;
-    border: 0px;
+width: 13rem;
+padding: 0.3rem;
+border-radius: 3px;
+border: 0px;
 }
 
-.startpageBG{
-    background-color: rgb(255, 177, 177);
-}
+
 .loggedInBG{
     background-color: rgb(199, 221, 173);
 }
-.changeAccountBG{
-    background-color: rgb(200, 182, 224);
-}
+
 .welcomeUser{
     background-color: #5cb87f;
-    transition: ease-in-out;
+    width: 16rem;
+    height:16rem;
 }
 .welcomeUser.hidden{
     display:none;
 }
 .welcomeUser h2{
+    text-align: center;
     font-family: "DynaPuff", system-ui;
     font-weight: 100;
     color:rgb(0, 0, 0);
+}
+.goodbyeUser{
+    background-color: #df5353;
+}
+.goodbyeUser.hidden{
+    display: none;
+}
+.goodbyeUser h2{
+    text-align: center;
+    font-family: "DynaPuff", system-ui;
+    font-weight: 100;
+    color: rgb(94, 9, 37);
 }
 
